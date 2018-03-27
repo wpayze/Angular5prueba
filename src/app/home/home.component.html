@@ -1,0 +1,25 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Agregue un valor a la lista</p>
+  </div>
+  <div class="col">
+      <p>Su lista ({{ ItemCount }})</p>
+    </div>
+</div>
+
+<div class="container color-light" [@goals]="goals.length">
+    <div class="col">
+      <p class="sm">Utilice el formulario para agregar una meta de vida</p>
+      
+      <form>
+        <input type="text" class="txt" name="item" placeholder="Meta de Vida..." [(ngModel)]="goalText">
+        <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+      </form>
+
+    </div>
+    <div class="col">
+        <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
+         {{ goal }}
+        </p>
+      </div>
+  </div>
